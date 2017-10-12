@@ -1,0 +1,11 @@
+{
+  "test": 2,
+  "thing": {
+    "cool": {
+      "neat": {
+        "hi": true,
+        "bye": false
+      }
+    }
+  }
+}

@@ -1,0 +1,141 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`handles objects 1`] = `
+Object {
+  "test": 2,
+  "thing": Object {
+    "cool": Object {
+      "neat": Object {
+        "bye": false,
+        "hi": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`reads html 1`] = `
+"<!DOCTYPE html>
+<html lang=\\"en\\">
+
+<head>
+    <meta charset=\\"UTF-8\\">
+    <meta name=\\"viewport\\" content=\\"width=device-width, initial-scale=1.0\\">
+    <meta http-equiv=\\"X-UA-Compatible\\" content=\\"ie=edge\\">
+    <title>Test For Oscuro </title>
+</head>
+
+<body>
+    <h1>hi</h1>
+</body>
+
+</html>"
+`;
+
+exports[`reads js 1`] = `
+Object {
+  "other": "cool stuff",
+}
+`;
+
+exports[`reads one file 1`] = `
+Object {
+  "test": 2,
+  "thing": Object {
+    "cool": Object {
+      "neat": Object {
+        "bye": false,
+        "hi": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`reads two files, both exist, returns first extant one 1`] = `
+Object {
+  "test": 2,
+  "thing": Object {
+    "cool": Object {
+      "neat": Object {
+        "bye": false,
+        "hi": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`reads two files, first exists, returns first extant one 1`] = `
+Object {
+  "test": 2,
+  "thing": Object {
+    "cool": Object {
+      "neat": Object {
+        "bye": false,
+        "hi": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`reads two files, none exist, returns default 1`] = `
+Object {
+  "success": true,
+}
+`;
+
+exports[`reads two files, second exists, returns first extant one 1`] = `
+Object {
+  "test": 2,
+  "thing": Object {
+    "cool": Object {
+      "neat": Object {
+        "bye": false,
+        "hi": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`reads yaml 1`] = `
+Object {
+  "cool": Object {
+    "thing": 5,
+  },
+  "test": true,
+}
+`;
+
+exports[`rejects when no default is given 1`] = `"no config was found"`;
+
+exports[`will give you back only a key within the file 1`] = `
+Object {
+  "bye": false,
+  "hi": true,
+}
+`;
+
+exports[`will read a dot file as json 1`] = `
+Object {
+  "success": true,
+  "testing": "dot file",
+}
+`;
+
+exports[`will read json as text 1`] = `
+"{
+  \\"test\\": 2,
+  \\"thing\\": {
+    \\"cool\\": {
+      \\"neat\\": {
+        \\"hi\\": true,
+        \\"bye\\": false
+      }
+    }
+  }
+}
+"
+`;
