@@ -1,5 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`handles js files not found 1`] = `
+Object {
+  "test": 2,
+  "thing": Object {
+    "cool": Object {
+      "neat": Object {
+        "bye": false,
+        "hi": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`handles js paths 1`] = `"cool stuff"`;
+
 exports[`handles objects 1`] = `
 Object {
   "test": 2,
@@ -108,8 +124,6 @@ Object {
   "test": true,
 }
 `;
-
-exports[`rejects when no default is given 1`] = `"no config was found"`;
 
 exports[`will give you back only a key within the file 1`] = `
 Object {

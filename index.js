@@ -7,7 +7,8 @@ const pify = require("pify");
 
 const readFile = pify(fs.readFile);
 
-module.exports = function oscuro(placesToLook = [], defaultResponse) {
+module.exports = function oscuro(placesToLook = [], options = {}) {
+  const { defaultResponse, returnPathOnly } = options;
   return new Promise((resolve, reject) => {
     const promises = placesToLook.map(input => {
       let evalType;
@@ -28,7 +29,19 @@ module.exports = function oscuro(placesToLook = [], defaultResponse) {
       }
 
       if (evalType === "js") {
-        return require(readFrom);
+        try {
+          const contents = require(readFrom);
+          if (input.key) {
+            const resolvedContent = get(contents, input.key);
+            if (resolvedContent && returnPathOnly) {
+              return Promise.resolve(input);
+            }
+            return Promise.resolve(resolvedContent);
+          }
+          return Promise.resolve(returnPathOnly ? input : contents);
+        } catch (e) {
+          return void 0;
+        }
       }
 
       return readFile(readFrom)
@@ -43,9 +56,13 @@ module.exports = function oscuro(placesToLook = [], defaultResponse) {
           }
 
           if (input.key) {
-            return Promise.resolve(get(contents, input.key));
+            const resolvedContent = get(contents, input.key);
+            if (resolvedContent && returnPathOnly) {
+              return Promise.resolve(input);
+            }
+            return Promise.resolve(resolvedContent);
           }
-          return Promise.resolve(contents);
+          return Promise.resolve(returnPathOnly ? input : contents);
         })
         .catch(() => {});
     });
@@ -59,7 +76,7 @@ module.exports = function oscuro(placesToLook = [], defaultResponse) {
       if (defaultResponse) {
         return resolve(defaultResponse);
       }
-      return reject("no config was found");
+      return resolve(void 0);
     });
   });
 };
