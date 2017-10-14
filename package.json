@@ -1,13 +1,17 @@
 {
   "name": "oscuro",
-  "version": "1.0.0",
-  "description":
-    "read from a list of files and get only the first one that returns",
+  "version": "2.0.0",
+  "description": "read from a list of files and get only the first one that returns",
   "main": "index.js",
   "scripts": {
     "test": "jest"
   },
-  "keywords": ["config", "file system", "rc", "dotfiles"],
+  "keywords": [
+    "config",
+    "file system",
+    "rc",
+    "dotfiles"
+  ],
   "author": "Brian Holt",
   "license": "Apache-2.0",
   "dependencies": {
